@@ -70,6 +70,7 @@
         <!-- 配置日志的根节点 -->
         <root level="debug">
             <appender-ref ref="Console"/>
+            <appender-ref ref="service_debug_appender"/>
         </root>
 
         <!-- 第三方日志系统 -->
@@ -83,7 +84,7 @@
         <!--<logger name="scau.com.lprapm.dao" level="DEBUG"/>-->
         <!--<logger name="scau.com.lprapm.mapper" level="DEBUG"/>-->
 
-        <logger name="scau.com.lprapm.dao" level="DEBUG" additivity="false">
+        <logger name="com.cn.dao" level="DEBUG" additivity="false">
             <appender-ref ref="consolePrint"/>
         </logger>
 

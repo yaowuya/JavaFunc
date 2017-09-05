@@ -20,9 +20,9 @@ public class TestUserController {
 
     @RequestMapping("/showUser")
     public String toIndex(HttpServletRequest request, Model model){
-        int userId = Integer.parseInt(request.getParameter("id"));
+        int userId = 1;
         TestUser user = this.testService.getUserById(userId);
         model.addAttribute("user", user);
-        return "showUser";
+        return "test/showUser";
     }
 }
