@@ -1,7 +1,9 @@
 package com.cn.dao.test;
 
 import com.cn.entity.test.TestUser;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TestUserMapper {
     int deleteByPrimaryKey(Integer id);
 

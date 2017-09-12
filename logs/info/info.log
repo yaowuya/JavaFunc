@@ -1,0 +1,16 @@
+2017-09-12 15:36:17.167 DEBUG [main][LogFactory.java:128] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2017-09-12 15:36:17.891 DEBUG [main][SqlSessionUtils.java:104] - Creating a new SqlSession
+2017-09-12 15:36:17.907 DEBUG [main][SqlSessionUtils.java:140] - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cfcbc9] was not registered for synchronization because synchronization is not active
+2017-09-12 15:36:18.892 DEBUG [main][SpringManagedTransaction.java:86] - JDBC Connection [jdbc:mysql://127.0.0.1:3306/javafunc, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
+2017-09-12 15:36:18.904 DEBUG [main][BaseJdbcLogger.java:139] - ==>  Preparing: select id, user_name, password, age from test_user where id = ? 
+2017-09-12 15:36:19.028 DEBUG [main][BaseJdbcLogger.java:139] - ==> Parameters: 1(Integer)
+2017-09-12 15:36:19.131 DEBUG [main][BaseJdbcLogger.java:139] - <==      Total: 1
+2017-09-12 15:36:19.142 DEBUG [main][SqlSessionUtils.java:168] - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cfcbc9]
+2017-09-12 15:37:35.468 DEBUG [main][LogFactory.java:128] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2017-09-12 15:37:35.694 DEBUG [main][SqlSessionUtils.java:104] - Creating a new SqlSession
+2017-09-12 15:37:35.701 DEBUG [main][SqlSessionUtils.java:140] - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cfcbc9] was not registered for synchronization because synchronization is not active
+2017-09-12 15:37:36.057 DEBUG [main][SpringManagedTransaction.java:86] - JDBC Connection [jdbc:mysql://127.0.0.1:3306/javafunc, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
+2017-09-12 15:37:36.066 DEBUG [main][BaseJdbcLogger.java:139] - ==>  Preparing: select id, user_name, password, age from test_user where id = ? 
+2017-09-12 15:37:36.104 DEBUG [main][BaseJdbcLogger.java:139] - ==> Parameters: 1(Integer)
+2017-09-12 15:37:36.133 DEBUG [main][BaseJdbcLogger.java:139] - <==      Total: 1
+2017-09-12 15:37:36.134 DEBUG [main][SqlSessionUtils.java:168] - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cfcbc9]
