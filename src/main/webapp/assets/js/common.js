@@ -25,7 +25,10 @@ require.config({
     'datepicker':'plugins/bootstrap-datetimepicker',
     'moment':'plugins/moment-with-locales',
     'timePicker':'package/timePicker',
-     'slimscroll': 'plugins/jquery.slimscroll',
+    'slimscroll': 'plugins/jquery.slimscroll',
+    'plupload':'plugins/plupload-2.3.3/plupload.full.min',
+    'pluploadQueue':'plugins/plupload-2.3.3/jquery.plupload.queue/jquery.plupload.queue',
+    'plup_zh_CN':'plugins/plupload-2.3.3/i18n/zh_CN'
   },
   shim: {
     'bootstrap': {
@@ -73,8 +76,11 @@ require.config({
     'moment': {
       deps: ['bootstrap']
     },
-      'slimscroll': {
-          deps: ['jquery']
-      },
+    'slimscroll': {
+      deps: ['jquery']
+    },
+    'plupload':{
+      deps:['jquery']
+    }
   }
 });

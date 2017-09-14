@@ -200,7 +200,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.8.0</version>
         </dependency>
-
+        <!--上传文件支持-->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -212,11 +212,22 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
-
+        <!--包含一些通用的编码解码算法-->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
+        </dependency>
+        <!--apache工具类所需包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
         </dependency>
     </dependencies>
     <build>
