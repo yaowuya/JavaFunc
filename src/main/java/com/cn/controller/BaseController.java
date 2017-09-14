@@ -22,7 +22,7 @@ public class BaseController {
     private HttpServletRequest request;
 
 //    public User getUserCurrent() {
-//        Object obj = WebUtils.getSessionAttribute(this.request, Constant.CURRENR_USER);
+//        Object obj = WebUtils.getSessionAttribute(this.request, SysConstant.CURRENR_USER);
 //        return (User) obj;
 //    }
 

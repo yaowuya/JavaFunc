@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * Created by 钟锐锋 on 2017/9/5.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:spring-mybatis.xml","classpath:spring-mvc.xml"})
 @WebAppConfiguration
 public class BaseTest {
 }

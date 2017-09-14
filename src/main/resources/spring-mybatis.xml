@@ -34,23 +34,6 @@
         <!-- 获取连接最大等待时间 -->
         <property name="maxWait" value="${jdbc.maxWait}"></property>
     </bean>
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
-          <!--destroy-method="close">-->
-        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
-        <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/javafunc" />-->
-        <!--<property name="username" value="root" />-->
-        <!--<property name="password" value="root" />-->
-        <!--&lt;!&ndash; 初始化连接大小 &ndash;&gt;-->
-        <!--<property name="initialSize" value="0"></property>-->
-        <!--&lt;!&ndash; 连接池最大数量 &ndash;&gt;-->
-        <!--<property name="maxActive" value="20"></property>-->
-        <!--&lt;!&ndash; 连接池最大空闲 &ndash;&gt;-->
-        <!--<property name="maxIdle" value="20"></property>-->
-        <!--&lt;!&ndash; 连接池最小空闲 &ndash;&gt;-->
-        <!--<property name="minIdle" value="1"></property>-->
-        <!--&lt;!&ndash; 获取连接最大等待时间 &ndash;&gt;-->
-        <!--<property name="maxWait" value="6000"></property>-->
-    <!--</bean>-->
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
@@ -73,5 +56,29 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    <!--验证码-->
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <prop key="kaptcha.border">yes</prop>
+                        <prop key="kaptcha.border.color">105,179,90</prop>
+                        <prop key="kaptcha.textproducer.font.color">black</prop>
+                        <prop key="kaptcha.image.width">93</prop>
+                        <prop key="kaptcha.image.height">44</prop>
+                        <prop key="kaptcha.textproducer.font.size">45</prop>
+                        <prop key="kaptcha.session.key">code</prop>
+                        <prop key="kaptcha.textproducer.char.string">1234567890</prop>
+                        <prop key="kaptcha.noise.color">black</prop>
+                        <prop key="kaptcha.textproducer.font.size">34</prop>
+                        <prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
 
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <prop key="kaptcha.textproducer.font.names">楷体</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
 </beans>
