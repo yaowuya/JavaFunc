@@ -424,7 +424,7 @@ used as it is.
 				}
 			});
 
-			return this;
+			return uploaders[$(this[0]).attr('id')];
 		} else {
 			// Get uploader instance for specified element
 			return uploaders[$(this[0]).attr('id')];
