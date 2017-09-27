@@ -229,6 +229,12 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.1</version>
         </dependency>
+        <!--用于文件上传时同时获取参数 multipartrequest-->
+        <dependency>
+            <groupId>com.servlets</groupId>
+            <artifactId>cos</artifactId>
+            <version>09May2002</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>JavaFunc</finalName>

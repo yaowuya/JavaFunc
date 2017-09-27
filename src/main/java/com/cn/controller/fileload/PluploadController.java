@@ -4,6 +4,7 @@ import com.cn.controller.BaseController;
 import com.cn.entity.fileload.Plupload;
 import com.cn.service.fileload.PluploadService;
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -21,12 +23,14 @@ import java.util.Map;
 public class PluploadController extends BaseController {
     @Autowired
     PluploadService pluploadService;
+    @Autowired
+    private HttpServletRequest request;
 
     /**Plupload文件上传处理方法*/
     @RequestMapping(value="/pluploadUpload")
     public void plupLoad(Plupload plupload, HttpServletRequest request,
                          HttpServletResponse response) {
-        Map<String,Object> params=super.getParamMap();
+        Map<String,Object> params=super.requestParams(request);
         String FileDir = "pluploadDir";//文件保存的文件夹
         plupload.setRequest(request);//手动传入Plupload对象HttpServletRequest属性
         String userId= MapUtils.getString(params,"userId");

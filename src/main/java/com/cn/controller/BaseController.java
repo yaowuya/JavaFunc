@@ -1,18 +1,15 @@
 package com.cn.controller;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.util.WebUtils;
+
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -37,6 +34,37 @@ public class BaseController {
             result.put(key, values[0]);
         }
         return result;
+    }
+
+    /**
+     * 获取前端通过 multipart/form-data 提交文件时附带的参数
+     * Enumeration<?>代表可以传递任意类型，?是通配符即Object及其下的子类，也就是java的所有对象了。
+     * request.getParameterNames()方法是将发送请求页面中form表单里所有具有name属性的表单对象获取(包括button).返回一个Enumeration类型的枚举.
+     * 通过Enumeration的hasMoreElements()方法遍历.再由nextElement()方法获得枚举的值.此时的值是form表单中所有控件的name属性的值.
+     * 最后通过request.getParameter()方法获取表单控件的value值.
+     * 先获得变量mane再获得其值，对于getParameterName（）其值是变量/对象的名称，getParameterValue（）获得的是变量/对象的值。
+     * request.getParameterValues("name")方法将获取所有form表单中name属性为"name"的值.该方法返回一个数组.遍历数组就可得到value值.
+     * request.getParameterNames()的值是无序排列request.getParameterValues()是按照form表单的控件顺序排列.
+     * @return
+     */
+    public Map<String, Object> requestParams(HttpServletRequest req) {
+        Map<String, Object> paramsMap = new HashMap<String, Object>();
+        if (req == null) {
+            return paramsMap;
+        }
+        Enumeration<?> paramNames = req.getParameterNames();
+        if(paramNames!=null&&paramNames.hasMoreElements()){
+            while (paramNames.hasMoreElements()){
+                String paramName=(String)paramNames.nextElement();
+                String[] paramValues=req.getParameterValues(paramName);
+                if(paramValues.length==1){
+                    paramsMap.put(paramName,paramValues[0]);
+                }else{
+                    paramsMap.put(paramName, ArrayUtils.toString(paramValues));
+                }
+            }
+        }
+        return paramsMap;
     }
 
     /**
