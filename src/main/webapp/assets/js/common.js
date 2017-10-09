@@ -27,10 +27,13 @@ require.config({
         'moment': 'plugins/moment-with-locales',
         'timePicker': 'package/timePicker',
         'slimscroll': 'plugins/jquery.slimscroll',
+        'fileinput':'plugins/boostrap-fileinput/fileinput',
+        'fileinput_zh':'plugins/boostrap-fileinput/locales/zh',
         'plupload': 'plugins/plupload-2.3.3/plupload.full.min',
         'pluploadQueue': 'plugins/plupload-2.3.3/jquery.plupload.queue/jquery.plupload.queue',
         'pluploadUi':'plugins/plupload-2.3.3/jquery.ui.plupload/jquery.ui.plupload',
-        'plup_zh_CN': 'plugins/plupload-2.3.3/i18n/zh_CN'
+        'plup_zh_CN': 'plugins/plupload-2.3.3/i18n/zh_CN',
+        'moxie':'plugins/plupload-2.3.3/moxie'
     },
     shim: {
         'bootstrap': {
@@ -80,6 +83,9 @@ require.config({
         },
         'slimscroll': {
             deps: ['jquery']
+        },
+        'fileinput_zh':{
+            deps:['jquery','fileinput']
         }
     }
 });

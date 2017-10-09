@@ -16,11 +16,11 @@
 		factory.apply(ctx, arguments);
 		return ctx.plupload;
 	};
-	
+
 	if (typeof define === "function" && define.amd) {
-		define("plupload", ['./moxie'], extract);
+		define("plupload", ['moxie'], extract);
 	} else if (typeof module === "object" && module.exports) {
-		module.exports = extract(require('./moxie'));
+		module.exports = extract(require('moxie'));
 	} else {
 		global.plupload = extract(global.moxie);
 	}
