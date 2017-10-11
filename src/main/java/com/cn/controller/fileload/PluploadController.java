@@ -31,7 +31,7 @@ public class PluploadController extends BaseController {
     public void plupLoad(Plupload plupload, HttpServletRequest request,
                          HttpServletResponse response) {
         Map<String,Object> params=super.requestParams(request);
-        String FileDir = "pluploadDir";//文件保存的文件夹
+        String FileDir = "uploadDir/pluploadDir";//文件保存的文件夹
         plupload.setRequest(request);//手动传入Plupload对象HttpServletRequest属性
         String userId= MapUtils.getString(params,"userId");
         //文件存储绝对路径,会是一个文件夹，项目相应Servlet容器下的"pluploadDir"文件夹，还会以用户唯一id作划分
