@@ -17,8 +17,8 @@ import java.util.TimeZone;
  * Created by 钟锐锋 on 2017/1/6.
  * 结余jackson的json工具类
  */
-public class  JsonUtil{
-    private static final Logger LOG= (Logger) LoggerFactory.getLogger(JsonUtil.class);
+public class JsonUtils {
+    private static final Logger LOG= (Logger) LoggerFactory.getLogger(JsonUtils.class);
     private static final ObjectMapper objectMapper;
     static {
         objectMapper=new ObjectMapper();
@@ -41,6 +41,14 @@ public class  JsonUtil{
         objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES,true);
     }
 
+    /**
+     * 将json字符串转换成T
+     * User user=JsonUtils.toObject(json,User.clazz)
+     * @param json
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     public static <T> T toObject(String json,Class<T> clazz){
         try{
             return objectMapper.readValue(json,clazz);
