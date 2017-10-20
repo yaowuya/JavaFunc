@@ -1,9 +1,9 @@
 /**
  * Created by zhongrf on 2017/10/9.
  */
-define(['bootstrap', 'fileinput_zh'], function () {
+define(['bootstrap', 'fileinput_zh','jqueryForm'], function () {
 
-    fileInput("input-file", "user/uploadfile");
+    fileInput("input-file", "/fileUpload/uploadFile");
     function fileInput(elementId, uploadUrl) {
         var control = $('.' + elementId);
         //初始化上传控件的样式
@@ -29,10 +29,41 @@ define(['bootstrap', 'fileinput_zh'], function () {
             validateInitialCount: true,
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+            // uploadExtraData: function(previewId, index) {   //额外参数的关键点
+            //     var obj = $(".submit-form").serializeArray();
+            //     console.log(obj);
+            //     return obj;
+            // },
         });
         //导入文件上传完成之后的事件
         control.on("fileuploaded", function (event, data, previewId, index) {
             console.log(event, data, previewId, index);
         });
     }
+
+    /**
+     * 用ajaxSubmit时，使用data{}时，data里面的json对象名不能和form表单里面input
+     * 的name一样，要不然值会重复，ajaxSubmit会自动提交form表单里面input的值
+     * data{}只是补充
+     */
+    $(".btn-submit").click(function (e) {
+        e.preventDefault();
+        $(".submit-form").ajaxSubmit({
+            url:"/fileUpload/uploadFile",
+            type:"post",
+            dataType:"json",
+            data:{
+                "money":"123",
+                "fundcode":"xiaoxiao"
+            },
+            success:function (response) {
+
+            },
+            error:function(error){
+
+            }
+        });
+
+    })
+
 });

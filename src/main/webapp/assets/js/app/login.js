@@ -1,4 +1,4 @@
-define(['ajaxPackage', 'messageCN'], function(ajaxPackage) {
+define(['Ajax', 'messageCN'], function(Ajax) {
     var userData={};
     // 验证码
     $("#verifycode").click(function(event) {
