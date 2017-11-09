@@ -1,14 +1,18 @@
 package com.cn.controller;
 
+import com.cn.common.SysConstant;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.util.WebUtils;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.registry.infomodel.User;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -17,6 +21,12 @@ import java.util.*;
  * Created by 钟锐锋 on 2017/9/5.
  */
 public class BaseController {
+    /**
+     * 使用格式不要忘了 {}
+     * logger.info("123123{}","123123231");
+     * 如果没有 {}，逗号后面的值不显示
+     */
+    protected final Logger logger=Logger.getLogger(BaseController.class);
     @Autowired
     private HttpServletRequest request;
 
