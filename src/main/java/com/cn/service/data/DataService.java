@@ -1,12 +1,15 @@
 package com.cn.service.data;
 
+import com.cn.common.aop.MultipleDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +21,8 @@ public class DataService implements ApplicationContextAware{
     private ApplicationContext applicationContext;
 
     private static Map<String,Object> parameterMap=new HashMap();
+    private static Map<String,DataSource> dataSourceMap=new HashMap<>();
+
 
     /**
      * 初始化全局参数，在系统启动时加载
@@ -26,6 +31,8 @@ public class DataService implements ApplicationContextAware{
     public void initSysData(){
         new Thread(()->{
             try {
+                //获取数据源
+                dataSourceMap= MultipleDataSource.getAllMyDataSourceMap();
                 //初始化全局参数parameterMap
                 Map<String,Object> paramsMap=new HashMap<String, Object>();
                 paramsMap.put("user","小明");

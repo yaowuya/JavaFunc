@@ -12,6 +12,13 @@ public class SysConstant {
     public static final String CURRENR_USER="current_user";
     public static final String CURRENR_ADDR = "current_addr";
 
+    //db type
+    public static final String DB_ORACLE="ORACLE";
+    public static final String DB_MSSQL="MSSQL";
+    public static final String DB_MYSQL="MYSQL";
+    public static final String DB_ACCESS="ACCESS";
+    public static final String DB_FOXPRO="FOXPRO";
+
     /**
      * 当主键为varchar(32)时，可用该函数产生主键
      * @return
