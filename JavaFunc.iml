@@ -49,7 +49,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:3.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:4.2.5.RELEASE" level="project" />
@@ -81,5 +81,12 @@
     <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.10.1" level="project" />
     <orderEntry type="library" name="Maven: com.servlets:cos:09May2002" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.12" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aspects:4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.11" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP-java6:2.3.13" level="project" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" level="project" />
   </component>
 </module>

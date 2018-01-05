@@ -10,5 +10,4 @@ define(['Ajax', 'messageCN'], function(Ajax) {
         /* Act on the event */
         window.location.href = "/redirect/views/test/showUser";
     });
-
 });

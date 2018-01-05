@@ -13,4 +13,13 @@
         <!--指定 MyBatis 所用日志的具体实现，未指定时将自动查找-->
 		<setting name="logImpl" value="LOG4J2" />
 	</settings>
+	<!-- 2. 别名 -->
+	<typeAliases>
+		<typeAlias type="com.cn.entity.quartz.ScheduleJob" alias="ScheduleJob"/>
+	</typeAliases>
+	<!-- 3. 引入分页插件 -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+	</plugins>
+
 </configuration>

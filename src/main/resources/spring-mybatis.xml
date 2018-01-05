@@ -2,13 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-3.1.xsd
                         http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.cn"/>
     <!-- 引入配置文件 -->
@@ -67,8 +68,31 @@
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 控制住数据源 -->
         <property name="dataSource" ref="defaultDataSource"/>
     </bean>
+
+    <!-- 7. 开启基于注解的事务，使用xml配置形式的事务 -->
+    <aop:config>
+        <!-- 切入点表达式 -->
+        <aop:pointcut expression="execution(* com.cn.service..*(..))" id="txPoint"/>
+        <!-- 配置事务增强 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+    </aop:config>
+
+    <!--  8. 配置事务增强，也就是事务如何切入 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 所有的方法都是事务方法 -->
+            <tx:method name="*"/>
+            <!-- 以get开始的所有方法 -->
+            <tx:method name="get*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id = "springContextUtils" class="com.cn.common.quartz.utils.SpringContextUtils"/>
+    <!--9. Quartz定时任务动态配置 -->
+    <bean id = "schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
     <!--验证码-->
     <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
         <property name="config">
