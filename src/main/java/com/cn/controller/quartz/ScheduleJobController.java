@@ -69,7 +69,7 @@ public class ScheduleJobController {
      * @param jobId
      * @return BaseResult
      */
-    @RequestMapping(value = "/runOnce",method = RequestMethod.POST)
+    @RequestMapping("runOnce")
     @ResponseBody
     public BaseResult runOnce(int jobId){
         scheduleJobService.runOnce(jobId);
