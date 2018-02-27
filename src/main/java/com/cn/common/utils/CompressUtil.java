@@ -58,7 +58,7 @@ public class CompressUtil {
      * <p>
      * 如果指定目录不存在,可以自动创建,不合法的路径将导致异常被抛出
      *
-     * @param zip
+     * @param zipFile
      *            指定的ZIP压缩文件
      * @param dest
      *            解压目录
