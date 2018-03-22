@@ -1,6 +1,5 @@
 package com.cn.common.aop;
 
-import com.cn.common.utils.EncryptUtil;
 import com.cn.entity.data.MyDataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
@@ -11,7 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
