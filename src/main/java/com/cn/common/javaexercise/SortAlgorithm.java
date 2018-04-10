@@ -10,9 +10,12 @@ import java.util.Arrays;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-        int[] array={7,3,2,5,8,4,10,9};
+        int[] array={11,10,55,78,100,111,45,56,79,90,345,1000};
 
         int[] bubbleArray=bubbleSort(array);
+
+
+        int[] insertSort=insertSort(array);
 
     }
 
@@ -24,6 +27,7 @@ public class SortAlgorithm {
     public static int[] bubbleSort(int[] array){
         if(array==null||array.length==0){
             System.out.println("数组不能为空");
+            return null;
         }
 
         int[] intArray=array;
@@ -50,7 +54,46 @@ public class SortAlgorithm {
         for(int a:intArray){
             System.out.print(a+" ");
         }
-
+        System.out.println(" ");
         return intArray;
+    }
+
+    /**
+     * 插入排序
+     * @param array
+     * @return
+     */
+    public static int[] insertSort(int[] array){
+        if(array==null||array.length==0){
+            System.out.println("数组不能为空");
+            return null;
+        }
+
+        int[] insertArray=array;
+        int n=0;
+        System.out.println("插入开始排序...");
+        for(int i=1;i<insertArray.length;i++){
+            int temp=insertArray[i];
+            int j=i-1;
+            for(;j>=0;j--){
+                n++;
+                if(insertArray[j]>temp){
+                    insertArray[j+1]=insertArray[j];
+                }else{
+                    break;
+                }
+            }
+
+            insertArray[j+1]=temp;
+        }
+        System.out.println("循环次数："+n);
+        output(insertArray);
+        return insertArray;
+    }
+
+    public static void output(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+",");
+        }
     }
 }
