@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -25,7 +24,8 @@ public class ScheduleJobController {
     public static Logger log = LoggerFactory.getLogger(ScheduleJobController.class);
 
     @Autowired
-    private ScheduleJobService scheduleJobService;
+    ScheduleJobService scheduleJobService;
+
 
     /**
      * 查询所有的定时任务，用于页面加载时显示表格数据

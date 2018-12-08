@@ -11,18 +11,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <java.version>1.8</java.version>
         <!-- spring版本号 -->
         <spring.version>4.2.5.RELEASE</spring.version>
-
+        <!--shiro版本号-->
+        <shiro.version>1.2.3</shiro.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.8</mybatis.version>
-
         <!-- mysql驱动版本号 -->
         <mysql-driver.version>5.1.29</mysql-driver.version>
-
         <!-- log4j日志包版本号 -->
         <slf4j.version>1.7.18</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
+        <google.collections.version>1.0</google.collections.version>
     </properties>
     <dependencies>
         <dependency>
@@ -38,6 +39,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <!-- 依赖只需参与编译，无须参与打包 scope设置为provided -->
             <scope>provided</scope>
         </dependency>
         <!-- 添加jstl依赖 -->
@@ -45,6 +47,8 @@
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
+            <!-- 依赖只是运行时需要，但无须参与编译 scope设置为runtime -->
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>taglibs</groupId>
@@ -95,7 +99,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
+            <version>4.2.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -147,7 +151,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.9</version>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -300,7 +304,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>JavaFunc</finalName>
+        <finalName>${project.artifactId}</finalName>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <!--<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>-->
         <!--用来打包mapper文件夹下的xml文件-->
@@ -348,8 +352,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <compilerArgument>
                         -Xlint:unchecked
                     </compilerArgument>
@@ -367,12 +371,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.0.0</version>
-                <configuration>
-                    <!--作用是将jar包打包到webapp下的lib文件夹下-->
-                    <webappDirectory>
-                        ${basedir}/src/main/webapp
-                    </webappDirectory>
-                </configuration>
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;作用是将jar包打包到webapp下的lib文件夹下&ndash;&gt;-->
+                    <!--<webappDirectory>-->
+                        <!--${basedir}/src/main/webapp-->
+                    <!--</webappDirectory>-->
+                <!--</configuration>-->
             </plugin>
             <!--mybatis generator 逆向工程-->
             <!--<plugin>-->

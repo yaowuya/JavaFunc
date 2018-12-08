@@ -24,6 +24,14 @@ import java.lang.reflect.Method;
 public class PermissionInterceptor {
     private static Logger logger= LoggerFactory.getLogger(PermissionInterceptor.class);
 
+    /**
+     * @param joinPoint
+     * @return
+     * @throws Throwable
+     * 1、第一个 * 表示返回值是任意的
+     * 2、第二个 * 表示匹配该类中所有的方法
+     * 3、(..) 表示方法的参数是任意的
+     */
     @Around("execution(* com.cn.controller.webservice..*.*(..))")
     public Object permissionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args=joinPoint.getArgs();
